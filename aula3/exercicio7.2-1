@@ -1,0 +1,98 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(
+    MaterialApp(debugShowCheckedModeBanner: false, home: PrimeiraPagina()),
+  );
+}
+
+class PrimeiraPagina extends StatelessWidget {
+  const PrimeiraPagina({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.lightGreen[400],
+      appBar: AppBar(
+        title: Text('Coruja Buraqueira'),
+        backgroundColor: Colors.lightGreen[800],
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            SizedBox(height: 20),
+            Container(
+              color: Colors.lightBlue,
+              margin: EdgeInsets.all(20),
+              padding: EdgeInsets.all(10),
+              child: Image.network(
+                'https://agron.com.br/wp-content/uploads/2025/05/Como-a-coruja-buraqueira-vive-em-grupo-2.webp',
+              ),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.amber,
+                minimumSize: Size(150, 40),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SegundaPagina()),
+                );
+              },
+              child: Text('Ver Rolinha-do-planalto', style: TextStyle(color: Colors.black)),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class SegundaPagina extends StatelessWidget {
+  const SegundaPagina({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.lightGreen[100],
+      appBar: AppBar(
+        title: Text('Rolinha-do-planalto'),
+        backgroundColor: Colors.green,
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            SizedBox(height: 20),
+            Container(
+              color: Colors.lightBlue[100],
+              margin: EdgeInsets.all(20),
+              padding: EdgeInsets.all(10),
+              child: Image.network(
+                'https://s2-g1.glbimg.com/_r59peYk-hbcXKW6Pi0UdwFrk7U=/0x0:1089x706/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2018/9/k/zzfUj8QoWidexELRzL7Q/rolinha-3.jpg',
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Text(
+                'A Rolinha-do-planalto (Columbina cyanopis) é uma espécie rara encontrada no Brasil. '
+                'Vive em áreas abertas e é conhecida por seu canto característico.',
+                textAlign: TextAlign.center,
+              ),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.amber,
+                minimumSize: Size(100, 40),
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('Voltar', style: TextStyle(color: Colors.black)),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
